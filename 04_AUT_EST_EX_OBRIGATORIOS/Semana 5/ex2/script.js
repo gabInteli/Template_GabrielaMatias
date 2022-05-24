@@ -11,6 +11,7 @@
   var resto = num1 % nota1;
   console.log(Math.floor(numN) + " notas de : " + nota1);
   console.log(resto);
+  document.getElementById("resultado1").innerHTML = "<p>" + Math.floor(numN) + " notas de : " + nota1 + "</p><br>" 
 
   if (resto != 0) {
     for (var i = 0; i < notas.length; i++) {
@@ -22,6 +23,8 @@
     var resto1 = resto % nota2;
     console.log(Math.floor(numO) + " notas de : " + nota2);
     console.log(resto1);
+    document.getElementById("resultado2").innerHTML = "<p>" + Math.floor(numO) + " notas de : " + nota2 + "</p><br>" 
+    
 
     if (resto1 != 0) {
       for (var i = 0; i < notas.length; i++) {
@@ -33,6 +36,8 @@
       var resto2 = resto1 % nota3;
       console.log(Math.floor(numP) + " notas de : " + nota3);
       console.log(resto2);
+      document.getElementById("resultado3").innerHTML = "<p>" + Math.floor(numP) + " notas de : " + nota3 + "</p><br>" 
+  
     }
 
     if (resto2 != 0) {
@@ -45,7 +50,13 @@
       var resto3 = resto2 % nota4;
       console.log(Math.floor(numQ) + " notas de : " + nota4);
       console.log(resto3);
+      document.getElementById("resultado4").innerHTML = "<p>" + Math.floor(numQ) + " notas de : " + nota4 + "</p><br>" 
+  
     }
+    else {
+      document.getElementById("resultado3").innerHTML = "<p></p>"
+    } 
+
     if (resto3 != 0) {
       for (var i = 0; i < notas.length; i++) {
         if (resto3 >= notas[i]) {
@@ -56,13 +67,11 @@
       var resto4 = resto3 % nota5;
       console.log(Math.floor(numR) + " notas de : " + nota5);
       console.log(resto4);
+      document.getElementById("resultado4").innerHTML = "<p>" + Math.floor(numR) + " notas de : " + nota5 + "</p><br>" 
+  
     }
+    else {
+      document.getElementById("resultado4").innerHTML = "<p></p>"
+    } 
   }
-
-  (document.getElementById("resultado").innerHTML =
-    "<p>" + Math.floor(numN) + " notas de : " + nota1 + "</p><br>" +
-    "<p>" + Math.floor(numO) + " notas de : " + nota2 + "</p><br>"+
-    "<p>" + Math.floor(numP) + " notas de : " + nota3 + "</p><br>"+
-    "<p>" + Math.floor(numQ) + " notas de : " + nota4 + "</p><br>"+
-    "<p>" + Math.floor(numR) + " notas de : " + nota5 + "</p><br>")
 }
