@@ -1,93 +1,60 @@
-﻿var Disciplina = {
-    nomeDisciplina:"",
-    pesoGrif:1,
-    pesoSons:1,
-    pesoCorv:1,
-    pesoLufa:1,
-    listaNotas:[],
-    geraNotas: function(nrNotas) {
-        for(var j=0; j < nrNotas; j++){
-            var notaAleatorio = Math.floor(Math.random() * 11) ;
-            this.listaNotas.push(notaAleatorio)
-        }
-    },
-    
-    calculaMediaDisciplina: function(){
-        var total=0;
-        for(var i=0; i< this.listaNotas.length; i++){
-        total += this.listaNotas[i]
-        };
-        return(total/this.listaNotas.length)
-    }
-    }
+﻿/* 
+=======================
+Declaração de variáveis
+=======================
+*/
 
-var CasaHogwarts={
-    nomeCasa:"",
-    nrCasa:0, 
-    mediaDisciplinas:0,
-    listaDisciplina:[], 
-    addDisciplina: function(disciplina){
-        this.listaDisciplina.push(listaDisciplina)
-    }, 
-    calcularMedia: function(){
-        for(var l=0; l<this.listaDisciplina.length;l++){
-            var mediaDis = this.listaDisciplina[l].calculaMediaDisciplina();
-            if (this.nrCasa == 1){
-                mediaDis = mediaDis*this.listaDisciplina[l].pesoGrif
-            }
-            else if (this.nrCasa == 2){
-                mediaDis = mediaDis * this.listaDisciplina[l].pesoSons
-            }
-            else if (this.nrCasa == 3){
-                mediaDis = mediaDis * this.listaDisciplina[l].pesoCorv
-            }
-            else {
-                mediaDis = mediaDis * this.listaDisciplina[l].pesoLufa
-            }
-        }
-    },
+var calcResDiv = "#calc";
+
+/* 
+=======================
+Event Listener
+=======================
+*/
+
+/* A adição dessa função que "escuta" um evento permite que 
+   verifiquemos se a página foi carregada para só então chamar
+   a função CalcAddAndShow, pois ela só funcionará depois da 
+   criação da div de resultado, com id "result" */
+   $(document).ready( function() {
+    var x0 = 10, y0 = 20;
+    CalcAddAndShow(x0, y0);
+});
+
+
+/* 
+=======================
+Funções
+======================= 
+*/
+
+/* Função que calcula uma soma e mostra a operação realizada e o resultado obtido */
+function CalcAddAndShow(x, y){
+    var op = "+";
+    var result = Calc(x, y, op);
+    ShowOp(x, y, op);
+    ShowResult(result);
 }
 
 
-
-function adicionarDisciplina(){
-    var disciplina= Object.create(Disciplina)
-    disciplina.nomeDisciplina = document.getElementById("nomeDisciplina").value
-    disciplina.pesoGrif= Number(document.getElementById("pesoGrif").value)
-    disciplina.pesoSons= Number(document.getElementById("pesoSons").value)
-    disciplina.pesoCorv= Number(document.getElementById("pesoCorv").value)
-    disciplina.pesoLufa= Number(document.getElementById("pesoLufa").value)
-    disciplina.geraNotas(50)
-    grifinoria.addDisciplina(disciplina)
-    sonserina.addDisciplina(disciplina)
-    corvinal.addDisciplina(disciplina)
-    lufaLufa.addDisciplina(disciplina)
+/* Função que calcula uma operação entre dois números recebidos como parâmetro */
+function Calc(x, y, op){
+    var result;
+    if (op == "+") {
+        result = x + y;
+    };
+    return result;
 }
 
-function calcular(){
-    grifinoria.calcularMedia();
-    sonserina.calcularMedia();
-    corvinal.calcularMedia();
-    lufaLufa.calcularMedia();
+
+/* Função que mostra a operação realizada */
+function ShowOp(x, y, op){
+    $(calcResDiv).append(`<br />${x} ${op} ${y} = `);
+    //Alternativa: .. += "<br />" + x + " " + op + " " + y + " = "
 }
 
-function geraJSON(){
-    document.getElementById("outJSON").textContent = JSON.stringify(grifinoria)
+
+/* Função que mostra o resultado obtido */
+function ShowResult(res){
+    $(calcResDiv).append(res);
 }
-
-var grifinoria = Object.create(CasaHogwarts)
-var sonserina = Object.create(CasaHogwarts)
-var corvinal = Object.create(CasaHogwarts)
-var lufaLufa = Object.create(CasaHogwarts)
-
-grifinoria.nomeCasa ='Grifinória'
-grifinoria.nrCasa = 1
-
-sonserina.nomeCasa ='Sonserina'
-sonserina.nrCasa = 2
-
-corvinal.nomeCasa ='Corvinal'
-corvinal.nrCasa = 3
-
-lufaLufa.nomeCasa = "Lufa Lufa"
-lufaLufa.nrCasa = 4

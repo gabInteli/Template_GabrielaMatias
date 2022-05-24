@@ -9,8 +9,12 @@
 }
 
 h1{
-	background-color: #ff4645;
+	background-color: #000;
 	color: white;
+}
+
+h3{
+	color: blueviolet;
 }
 
 #main {

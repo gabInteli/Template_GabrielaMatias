@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>ETAPA 3</title>
+	<link rel="stylesheet" href="style.css" />	
+	<script src="script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<div id="main">
+		<img src="http://hogwartshabble.weebly.com/uploads/1/3/8/2/13824541/6170524_orig.jpg?0" style="height: 100%;"/>
+		<h1>CASAS DE HOGWARTS</h1>
+		<h2>Adicionar Disciplinas:</h2>
+			<h3>Nome Disciplina:</h3>
+			<input type="text" id="nomeDisciplina"/>
+			<h3>Peso Grifinória:</h3>
+			<input type="number" id="pesoGrif"/>
+			<h3>Peso Sonserina:</h3>
+			<input type="number" id="pesoSons"/>
+			<h3>Peso Corvinal:</h3>			
+			<input type="number" id="pesoCorv"/>
+			<h3>Peso Lufa-Lufa:</h3>				
+			<input type="number" id="pesoLufa"/>
+			<br>
+			<input type="button" id="addDis" value="Adicionar Disciplina" onClick="adicionarDisciplina()"/>
+			<input type="button" id="calcular" value="Calcular" onClick="calcular()"/>
+			<input type="button" id="addJson" value="Adicionar JSON" onClick="geraJSON()"/>
+		</div>
+</body>
+</html>
