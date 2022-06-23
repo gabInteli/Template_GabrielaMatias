@@ -3,6 +3,7 @@
     var notasProva = (document.getElementById("notasProva").value).split(",")
     var notasTrabalho = (document.getElementById("notasTrabalho").value).split(",")
 
+    
     class Aluno{
     constructor(
         nome,
